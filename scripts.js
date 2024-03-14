@@ -4,22 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = carousel.querySelector('.prev');
     const slides = carousel.querySelector('.carousel-inner');
     const slideWidth = slides.firstElementChild.clientWidth;
-
+    const slideCount = slides.children.length;
     let counter = 0;
 
     nextBtn.addEventListener('click', function() {
-        counter++;
-        if (counter > slides.children.length - 1) {
-            counter = 0;
-        }
+        counter = (counter + 1) % slideCount;
         updateCarousel();
     });
 
     prevBtn.addEventListener('click', function() {
-        counter--;
-        if (counter < 0) {
-            counter = slides.children.length - 1;
-        }
+        counter = (counter - 1 + slideCount) % slideCount;
         updateCarousel();
     });
 
