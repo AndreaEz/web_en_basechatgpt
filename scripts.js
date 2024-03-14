@@ -1,23 +1,29 @@
-// Funcionalidad del carrusel
-let slideIndex = 0;
-const slides = document.querySelectorAll('.juego-slide');
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel');
+    const nextBtn = carousel.querySelector('.next');
+    const prevBtn = carousel.querySelector('.prev');
+    const slides = carousel.querySelector('.carousel-inner');
+    const slideWidth = slides.firstElementChild.clientWidth;
 
-function moveSlide(n) {
-    slideIndex += n;
-    showSlide(slideIndex);
-}
+    let counter = 0;
 
-function showSlide(n) {
-    if (n >= slides.length) {
-        slideIndex = 0;
+    nextBtn.addEventListener('click', function() {
+        counter++;
+        if (counter > slides.children.length - 1) {
+            counter = 0;
+        }
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', function() {
+        counter--;
+        if (counter < 0) {
+            counter = slides.children.length - 1;
+        }
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        slides.style.transform = `translateX(-${counter * slideWidth}px)`;
     }
-    if (n < 0) {
-        slideIndex = slides.length - 1;
-    }
-    slides.forEach(slide => slide.style.transform = `translateX(-${slideIndex * 100}%)`);
-}
-
-// Desplazar automáticamente el carrusel cada cierto tiempo
-setInterval(() => {
-    moveSlide(1);
-}, 5000); // Cambiar la velocidad del carrusel según sea necesario
+});
