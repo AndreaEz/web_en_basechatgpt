@@ -127,37 +127,41 @@ a:hover {
 .carousel {
     position: relative;
     overflow: hidden;
-    margin-top: 20px;
 }
 
 .carousel-inner {
     display: flex;
-}
-
-.juego-slide {
-    flex: 0 0 auto;
-    width: 100%;
     transition: transform 0.5s ease;
 }
 
-/* Botones de control del carrusel */
-.prev,
-.next {
+.slide {
+    flex: 0 0 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    background-color: #6B7AF0;
+    color: white;
     border: none;
+    padding: 10px 20px;
     cursor: pointer;
-    padding: 10px;
-    z-index: 1;
 }
 
 .prev {
-    left: 0;
+    left: 10px;
 }
 
 .next {
-    right: 0;
+    right: 10px;
 }
