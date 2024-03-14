@@ -23,13 +23,24 @@
     <main class="container">
         <section id="juegos-destacados">
             <h2>Nuestros Juegos Destacados</h2>
-            <div class="juegos-destacados">
-                <h3>[Nombre del Juego 1]</h3>
-                <p>[Descripción breve del juego 1]</p>
-                <img src="enlace-a-imagen-del-juego-1" alt="Imagen del Juego 1">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="juego-slide">
+                        <!-- Contenido del juego 1 -->
+                    </div>
+                    <div class="juego-slide">
+                        <!-- Contenido del juego 2 -->
+                    </div>
+                    <div class="juego-slide">
+                        <!-- Contenido del juego 3 -->
+                    </div>
+                    <!-- Agregar más juegos según sea necesario -->
+                </div>
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
             </div>
-            <!-- Repetir para cada juego destacado -->
         </section>
+
 
         <section id="unete-aventura">
             <h2>Únete a la Aventura</h2>
